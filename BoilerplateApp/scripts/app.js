@@ -28,21 +28,21 @@ var demo = (function(){
                     1000
                 );
             camera.position.set( 0, 0, 0 );
-            scene.add(camera);
-
             /** PLANE **/
-            var pgeometry = new THREE.PlaneGeometry( 10, 10 );
+            var pgeometry = new THREE.PlaneGeometry( 100, 100 );
             var pmaterial = new THREE.MeshBasicMaterial( {color: 0xffffff, side: THREE.DoubleSide} );
             plane = new THREE.Mesh(  pgeometry, pmaterial );
-           // scene.add(plane);
+            camera.add(plane);
+
+            scene.add(camera);
 
             /** SUN **/
-            var sungeometry = new THREE.SphereGeometry(15, 15, 15);
-            var sunmaterial = new THREE.MeshBasicMaterial({color: 0xBBBB00});
+            var sungeometry = new THREE.SphereGeometry(15, 15, 3);
+            var sunmaterial = new THREE.MeshBasicMaterial({color: 0xBBBB00, wireframe:true});
                 sunny = new THREE.Mesh(sungeometry, sunmaterial);
             scene.add(sunny);
-            sunny.name = "sun";
-            sunny.position.set(0, 10, -100);
+
+            sunny.position.set(100, 100, 100);
             /** BOX MODELS **/
             box = new THREE.Mesh(
                 new THREE.SphereGeometry(
